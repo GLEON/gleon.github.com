@@ -1,0 +1,8 @@
+Package: glmtools
+Version: 0.2.1
+Depends: R (>= 2.14.0)
+Imports: ncdf4, RCurl
+License: file LICENSE
+MD5sum: c33b046604a22170c25a45ac985e3f60
+NeedsCompilation: no
+
