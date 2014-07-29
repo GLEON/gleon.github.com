@@ -6,3 +6,12 @@ License: file LICENSE
 MD5sum: c33b046604a22170c25a45ac985e3f60
 NeedsCompilation: no
 
+Package: LakeMetabolizer
+Version: 1.1
+Depends: R (>= 2.15.0), rLakeAnalyzer (>= 1.4)
+Imports: plyr
+Suggests: R2jags, R2WinBUGS
+License: GPL (>= 2)
+MD5sum: e1753268569fd72a08dd0fc47194a49a
+NeedsCompilation: yes
+
