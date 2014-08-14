@@ -1,9 +1,9 @@
 Package: glmtools
-Version: 0.2.1
+Version: 0.2.3
 Depends: R (>= 2.14.0)
-Imports: ncdf4, RCurl
+Imports: ncdf4, RCurl, tools, rLakeAnalyzer
 License: file LICENSE
-MD5sum: c33b046604a22170c25a45ac985e3f60
+MD5sum: 46a86c7d47b163f744b75bdf70d88984
 NeedsCompilation: no
 
 Package: LakeMetabolizer
