@@ -1,4 +1,9 @@
 Package: ncdf4
+Version: 1.12
+License: GPL (>= 3)
+Archs: x64
+
+Package: ncdf4
 Version: 1.9
 License: GPL (>= 3)
 Archs: i386
