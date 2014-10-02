@@ -1,17 +1,5 @@
-Package: glmtools
-Version: 0.2.4.2
-Depends: R (>= 3.0)
-Imports: ncdf4, RCurl, tools, rLakeAnalyzer
-License: file LICENSE
-MD5sum: 577e027fa63f9d4421a44532521fb3be
+Package: GLMr
+Version: 1.4
+MD5sum: 3d5e6c1c3b2ce499bca93ce66d9dc8e1
 NeedsCompilation: no
-
-Package: LakeMetabolizer
-Version: 1.1
-Depends: R (>= 2.15.0), rLakeAnalyzer (>= 1.4)
-Imports: plyr
-Suggests: R2jags, R2WinBUGS
-License: GPL (>= 2)
-MD5sum: e1753268569fd72a08dd0fc47194a49a
-NeedsCompilation: yes
 
