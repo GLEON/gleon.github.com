@@ -1,5 +1,6 @@
 Package: GLMr
-Version: 1.4.3
-MD5sum: 420c37753b5956e7586bc2c51f388d30
+Version: 1.4
+Suggests: glmtools
+MD5sum: d82fe481e8064cd416baad6c215bad4e
 NeedsCompilation: no
 
