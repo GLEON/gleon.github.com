@@ -3,35 +3,236 @@ GSA Workshop G16
 author: Luke Winslow, Jordan Read, GLEON Fellows
 date: 2014-10-27
 
-First Slide
+Open source science tools in GLEON
+========================================================
+**rLakeAnalyzer**
+
+Standardized methods for calculating common important derived physical features of lakes.
+
+**LakeMetabolizer**
+
+A collection of tools for the calculation of freewater metabolism.
+
+rLakeAnalyzer Acknowledgements
 ========================================================
 
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
+- [**Derivation of lake mixing and stratification indices from high-resolution lake buoy data**](http://www.sciencedirect.com/science/article/pii/S136481521100123X) (Read, Jordan, Hamilton, David, Jones, Ian, Muraoka, Kohji, Kroiss, Ryan, Wu, Chin, Gaiser, Evelyn)
+- Jennie Brentrup for the idea
+- **R Package Collaborators:** Jordan Read, Richard Woolway, Jennifer Brentrup, Taylor Leach, Jake Zwart
+![Ecomod header](pics/ecomod.png)
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
 
-Slide With Code
+LakeMetabolizer Acknowledgements
+========================================================
+
+- **Multiple models of lake metabolism calculation based on diverse statistical underpinnings** (In Prep) Luke A Winslow, Jacob A. Zwart, Ryan D. Batt, Hilary Dugan, R. Iestyn Woolway, Jessica Corman, Paul C Hanson, Gordon Holtgrieve, Aline Jaimes, Jordan S Read
+
+- GLEON Fellows and Fellowship leadership
+
+Learning Goals
+========================================================
+1. Become familiar with open-source R tools for Limnology
+  * Where to get them
+  * What they can do
+  * How to get started
+
+2. Learn open and collaborative development
+  * Where to find it
+  * How to contribute
+
+Installation and Prep
 ========================================================
 
 
 ```r
-summary(cars)
+install.packages('rLakeAnalyzer')
+install.packages('LakeMetabolizer')
 ```
 
-```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
+
+```r
+library(rLakeAnalyzer)
+library(LakeMetabolizer)
 ```
 
-Slide With Plot
+Quick example
 ========================================================
 
-![plot of chunk unnamed-chunk-2](g16_gsa_workshop-figure/unnamed-chunk-2-1.png) 
+
+```r
+wtr.path <- system.file('extdata', 'Sparkling.daily.wtr', package="rLakeAnalyzer")
+
+sp.wtr = load.ts(wtr.path)
+wtr.heat.map(sp.wtr)
+```
+
+![plot of chunk unnamed-chunk-3](g16_gsa_workshop-figure/unnamed-chunk-3.png) 
+
+rLakeAnalyzer Functions
+========================================================
+
+These functions operate on single timesteps
+  * thermo.depth
+  * meta.depths
+  * wedderburn.number
+  * schmidt.stability
+  * lake.number
+  * buoyancy.freq
+
+thermo.depth
+========================================================
+
+```r
+wtr = c(22.51, 22.42, 22.4, 22.4, 22.4, 22.36, 
+        22.3, 22.21, 22.11, 21.23, 16.42, 
+		15.15, 14.24, 13.35, 10.94, 10.43, 
+    10.36, 9.94, 9.45, 9.1, 8.91, 8.58, 8.43)
+depths = c(0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 7, 
+           8, 9, 10, 11, 12, 13, 14, 15, 16, 
+		17, 18, 19, 20)
+plot(wtr, depths, type='o', ylim=c(16,0))
+```
+
+<img src="g16_gsa_workshop-figure/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+
+
+thermo.depth
+========================================================
+
+```r
+thermo.depth(wtr, depths, seasonal=FALSE)
+```
+
+```
+[1] 7.502
+```
+
+meta.depths
+========================================================
+
+
+```r
+md = meta.depths(wtr, depths, seasonal=FALSE)
+
+#top of metalimnion
+md[1]
+```
+
+```
+[1] 5.944
+```
+
+```r
+#bottom of metalimnion
+md[2]
+```
+
+```
+[1] 11.09
+```
+
+schmidt.stability
+========================================================
+Requires bathymetry
+
+
+```r
+bthA <- c(10000,9000,8640,2000,0) #meters^2
+bthD <-	c(0,5,10,15,20) #meters
+
+schmidt.stability(wtr, depths, bthA, bthD)
+```
+
+```
+[1] 402.1
+```
+
+You get the point.
+
+Timeseries functions
+========================================================
+All start with "ts.*"
+
+Use load.ts to load data into proper format
+
+```r
+wtr.path <- system.file('extdata', 'Sparkling.wtr', package="rLakeAnalyzer")
+wtr = load.ts(wtr.path)
+head(wtr[,1:3])
+```
+
+```
+             datetime wtr_0.0 wtr_0.5
+1 2009-05-02 10:00:00   6.555   6.552
+2 2009-05-02 10:30:00   6.555   6.505
+3 2009-05-02 11:00:00   6.555   6.540
+4 2009-05-02 11:30:00   6.745   6.575
+5 2009-05-02 12:00:00   6.775   6.575
+6 2009-05-02 12:30:00   6.685   6.635
+```
+
+File Format
+========================================================
+File format is important
+
+```r
+#file.show(wtr.path)
+```
+
+Timeseries functions
+========================================================
+
+```r
+ts.meta.depths(wtr[1:4,])
+```
+
+```
+             datetime    top bottom
+1 2009-05-02 10:00:00 0.7583 0.7583
+2 2009-05-02 10:30:00 7.4634 7.4634
+3 2009-05-02 11:00:00 7.6275 7.6275
+4 2009-05-02 11:30:00 0.2500 0.2500
+```
+
+```r
+ts.thermo.depth(wtr[1:4,])
+```
+
+```
+             datetime thermo.depth
+1 2009-05-02 10:00:00       0.7583
+2 2009-05-02 10:30:00       7.4634
+3 2009-05-02 11:00:00       7.6275
+4 2009-05-02 11:30:00       0.2500
+```
+
+
+Plotting functions
+========================================================
+
+```r
+#wtr.plot.temp(wtr)
+```
+
+![alt text](pics/wtr.plot.png)
+
+Plotting functions
+========================================================
+For further info see:
+* [Derivation of lake mixing and stratification indices from high-resolution lake buoy data](http://www.sciencedirect.com/science/article/pii/S136481521100123X)
+* [CRAN Packge page](http://cran.r-project.org/web/packages/rLakeAnalyzer/index.html)
+* [Github Page](http://github.com/GLEON/rLakeAnalyzer)
+
+
+GLEON Collaborative Development
+========================================================
+![Github page](pics/github_gleon.PNG)
+
+
+The power of github
+========================================================
+![Github issues](pics/rla_issues.png)
+
+
+
+
