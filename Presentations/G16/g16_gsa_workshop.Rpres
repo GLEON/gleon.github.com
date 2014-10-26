@@ -63,6 +63,15 @@ sp.wtr = load.ts(wtr.path)
 wtr.heat.map(sp.wtr)
 ````
 
+GLEON Collaborative Development
+========================================================
+![Github page](pics/github_gleon.PNG)
+
+
+The power of github
+========================================================
+![Github issues](pics/rla_issues.png)
+
 rLakeAnalyzer Functions
 ========================================================
 
@@ -137,7 +146,21 @@ File Format
 File format is important
 ```{r, exec=FALSE}
 #file.show(wtr.path)
+
+fpath <- system.file('extdata', 'Sparkling.bth', package="rLakeAnalyzer")  
+sparkling.bathy = load.bathy(fpath)
+head(sparkling.bathy)
 ````
+
+Example files
+========================================================
+File format is important
+```{r, exec=FALSE}
+fpath
+wtr.path
+````
+
+
 
 Timeseries functions
 ========================================================
@@ -151,12 +174,12 @@ ts.thermo.depth(wtr[1:4,])
 Plotting functions
 ========================================================
 ```{r, fig.align='center'}
-#wtr.plot.temp(wtr)
+wtr.path <- system.file('extdata', 'Sparkling.daily.wtr', package="rLakeAnalyzer")
+wtr=load.ts(wtr.path)
+wtr.plot.temp(wtr)
 ````
 
-![alt text](pics/wtr.plot.png)
-
-Plotting functions
+rLakeAnalyzer
 ========================================================
 For further info see:
 * [Derivation of lake mixing and stratification indices from high-resolution lake buoy data](http://www.sciencedirect.com/science/article/pii/S136481521100123X)
@@ -164,14 +187,12 @@ For further info see:
 * [Github Page](http://github.com/GLEON/rLakeAnalyzer)
 
 
-GLEON Collaborative Development
+
+LakeMetabolizer
 ========================================================
-![Github page](pics/github_gleon.PNG)
 
 
-The power of github
-========================================================
-![Github issues](pics/rla_issues.png)
+
 
 
 

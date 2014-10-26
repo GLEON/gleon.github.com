@@ -66,7 +66,16 @@ sp.wtr = load.ts(wtr.path)
 wtr.heat.map(sp.wtr)
 ```
 
-![plot of chunk unnamed-chunk-3](g16_gsa_workshop-figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](g16_gsa_workshop-figure/unnamed-chunk-3-1.png) 
+
+GLEON Collaborative Development
+========================================================
+![Github page](pics/github_gleon.PNG)
+
+
+The power of github
+========================================================
+![Github issues](pics/rla_issues.png)
 
 rLakeAnalyzer Functions
 ========================================================
@@ -93,7 +102,7 @@ depths = c(0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 7,
 plot(wtr, depths, type='o', ylim=c(16,0))
 ```
 
-<img src="g16_gsa_workshop-figure/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+<img src="g16_gsa_workshop-figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 
 
 thermo.depth
@@ -104,7 +113,7 @@ thermo.depth(wtr, depths, seasonal=FALSE)
 ```
 
 ```
-[1] 7.502
+[1] 7.502121
 ```
 
 meta.depths
@@ -119,7 +128,7 @@ md[1]
 ```
 
 ```
-[1] 5.944
+[1] 5.943727
 ```
 
 ```r
@@ -128,7 +137,7 @@ md[2]
 ```
 
 ```
-[1] 11.09
+[1] 11.0914
 ```
 
 schmidt.stability
@@ -144,7 +153,7 @@ schmidt.stability(wtr, depths, bthA, bthD)
 ```
 
 ```
-[1] 402.1
+[1] 402.0844
 ```
 
 You get the point.
@@ -177,7 +186,43 @@ File format is important
 
 ```r
 #file.show(wtr.path)
+
+fpath <- system.file('extdata', 'Sparkling.bth', package="rLakeAnalyzer")  
+sparkling.bathy = load.bathy(fpath)
+head(sparkling.bathy)
 ```
+
+```
+  depths    areas
+1      0 583054.0
+2      1 549139.5
+3      2 519084.9
+4      3 496773.0
+5      4 477533.7
+6      5 455936.5
+```
+
+Example files
+========================================================
+File format is important
+
+```r
+fpath
+```
+
+```
+[1] "C:/Users/lwinslow/Documents/R/win-library/3.1/rLakeAnalyzer/extdata/Sparkling.bth"
+```
+
+```r
+wtr.path
+```
+
+```
+[1] "C:/Users/lwinslow/Documents/R/win-library/3.1/rLakeAnalyzer/extdata/Sparkling.wtr"
+```
+
+
 
 Timeseries functions
 ========================================================
@@ -187,11 +232,11 @@ ts.meta.depths(wtr[1:4,])
 ```
 
 ```
-             datetime    top bottom
-1 2009-05-02 10:00:00 0.7583 0.7583
-2 2009-05-02 10:30:00 7.4634 7.4634
-3 2009-05-02 11:00:00 7.6275 7.6275
-4 2009-05-02 11:30:00 0.2500 0.2500
+             datetime       top    bottom
+1 2009-05-02 10:00:00 0.7583432 0.7583432
+2 2009-05-02 10:30:00 7.4634060 7.4634060
+3 2009-05-02 11:00:00 7.6274722 7.6274722
+4 2009-05-02 11:30:00 0.2500010 0.2500010
 ```
 
 ```r
@@ -200,10 +245,10 @@ ts.thermo.depth(wtr[1:4,])
 
 ```
              datetime thermo.depth
-1 2009-05-02 10:00:00       0.7583
-2 2009-05-02 10:30:00       7.4634
-3 2009-05-02 11:00:00       7.6275
-4 2009-05-02 11:30:00       0.2500
+1 2009-05-02 10:00:00    0.7583422
+2 2009-05-02 10:30:00    7.4634050
+3 2009-05-02 11:00:00    7.6274712
+4 2009-05-02 11:30:00    0.2500000
 ```
 
 
@@ -211,12 +256,14 @@ Plotting functions
 ========================================================
 
 ```r
-#wtr.plot.temp(wtr)
+wtr.path <- system.file('extdata', 'Sparkling.daily.wtr', package="rLakeAnalyzer")
+wtr=load.ts(wtr.path)
+wtr.plot.temp(wtr)
 ```
 
-![alt text](pics/wtr.plot.png)
+<img src="g16_gsa_workshop-figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
 
-Plotting functions
+rLakeAnalyzer
 ========================================================
 For further info see:
 * [Derivation of lake mixing and stratification indices from high-resolution lake buoy data](http://www.sciencedirect.com/science/article/pii/S136481521100123X)
@@ -224,14 +271,12 @@ For further info see:
 * [Github Page](http://github.com/GLEON/rLakeAnalyzer)
 
 
-GLEON Collaborative Development
+
+LakeMetabolizer
 ========================================================
-![Github page](pics/github_gleon.PNG)
 
 
-The power of github
-========================================================
-![Github issues](pics/rla_issues.png)
+
 
 
 
