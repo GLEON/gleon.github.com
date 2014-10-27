@@ -25,23 +25,24 @@ rLakeAnalyzer Acknowledgements
 LakeMetabolizer Acknowledgements
 ========================================================
 
-- **Multiple models of lake metabolism calculation based on diverse statistical underpinnings** (In Prep) Luke A Winslow, Jacob A. Zwart, Ryan D. Batt, Hilary Dugan, R. Iestyn Woolway, Jessica Corman, Paul C Hanson, Gordon Holtgrieve, Aline Jaimes, Jordan S Read
+- **Multiple models of lake metabolism calculation based on diverse statistical underpinnings** (In Prep) Luke A Winslow, Jacob A. Zwart, Ryan D. Batt, Hilary Dugan, R. Iestyn Woolway, Jessica Corman, Paul C Hanson, Aline Jaimes, Jordan S Read
 
 - GLEON Fellows and Fellowship leadership
 
 Learning Goals
 ========================================================
 1. Become familiar with open-source R tools for Limnology
+  * What they do
   * Where to get them
-  * What they can do
   * How to get started
 
 2. Learn open and collaborative development
-  * Where to find it
+  * Where we work together
   * How to contribute
 
-Installation and Prep
+Where to get the packages
 ========================================================
+-Available on [CRAN](http://cran.r-project.org/web/packages/available_packages_by_name.html)
 
 
 ```r
@@ -55,27 +56,101 @@ library(rLakeAnalyzer)
 library(LakeMetabolizer)
 ```
 
-Quick example
+What is rLakeAnalyzer
 ========================================================
+R-version of original Lake Analyzer
 
-
-```r
-wtr.path <- system.file('extdata', 'Sparkling.daily.wtr', package="rLakeAnalyzer")
-
-sp.wtr = load.ts(wtr.path)
-wtr.heat.map(sp.wtr)
-```
-
+Lake Physics
 ![plot of chunk unnamed-chunk-3](g16_gsa_workshop-figure/unnamed-chunk-3-1.png) 
+
+What is LakeMetabolizer
+========================================================
+Tools for gas exchange and metabolism estimation
+![Metabolizer example](pics/metabolizer_example.png)
+
+Learning Goals
+========================================================
+1. Become familiar with open-source R tools for Limnology
+  * What they do
+  * Where to get them
+  * How to get started
+
+2. Learn open and collaborative development
+  * **Where and how we work together**
+  * How to contribute
+
 
 GLEON Collaborative Development
 ========================================================
 ![Github page](pics/github_gleon.PNG)
 
 
-The power of github
+GLEON Github organization
 ========================================================
-![Github issues](pics/rla_issues.png)
+[Online Demo](http://github.com/GLEON)
+
+Learning Goals
+========================================================
+1. Become familiar with open-source R tools for Limnology
+  * What they do
+  * Where to get them
+  * How to get started
+
+2. Learn open and collaborative development
+  * Where and how we work together
+  * **How to contribute**
+
+Everyone can contribute
+========================================================
+1. Sign-up for free Github account
+2. Go to [http://github.com/GLEON/gsa_workshop](http://github.com/GLEON/gsa_workshop)
+3. Create a new "Issue"
+  * What is your goal for G16
+4. Look through the created issues and comment on one. 
+
+All projects need help...
+========================================================
+1. Testing
+2. Coding
+3. Writing examples
+4. Writing documentation
+5. Creating visualizations
+6. ...
+
+Learning Goals
+========================================================
+1. Become familiar with open-source R tools for Limnology
+  * **What they do**
+  * Where to get them
+  * How to get started
+
+2. Learn open and collaborative development
+  * Where and how we work together
+  * How to contribute
+
+
+thermo.depth
+========================================================
+
+```r
+wtr = c(22.51,22.42,22.4,22.4,22.4,22.36,
+        22.3, 22.21, 22.11, 21.23, 16.42, 
+		15.15,14.24,13.35,10.94,10.43, 
+    10.36,9.94,9.45,9.1,8.91,8.58,8.43)
+depths = c(0, 0.5, 1, 1.5, 2, 3,4,5,6,7, 
+           8, 9, 10, 11, 12,13,14,15,16, 
+		  17,18,19,20)
+plot(wtr, depths, type='o', ylim=c(16,0))
+```
+
+<img src="g16_gsa_workshop-figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+
+Finding Examples
+========================================================
+
+```r
+?thermo.depth
+```
 
 rLakeAnalyzer Functions
 ========================================================
@@ -88,81 +163,35 @@ These functions operate on single timesteps
   * lake.number
   * buoyancy.freq
 
-thermo.depth
-========================================================
-
 ```r
-wtr = c(22.51, 22.42, 22.4, 22.4, 22.4, 22.36, 
-        22.3, 22.21, 22.11, 21.23, 16.42, 
-		15.15, 14.24, 13.35, 10.94, 10.43, 
-    10.36, 9.94, 9.45, 9.1, 8.91, 8.58, 8.43)
-depths = c(0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 7, 
-           8, 9, 10, 11, 12, 13, 14, 15, 16, 
-		17, 18, 19, 20)
-plot(wtr, depths, type='o', ylim=c(16,0))
+?thermo.depth
 ```
 
-<img src="g16_gsa_workshop-figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
-
-
-thermo.depth
-========================================================
-
-```r
-thermo.depth(wtr, depths, seasonal=FALSE)
-```
-
-```
-[1] 7.502121
-```
-
-meta.depths
-========================================================
-
-
-```r
-md = meta.depths(wtr, depths, seasonal=FALSE)
-
-#top of metalimnion
-md[1]
-```
-
-```
-[1] 5.943727
-```
-
-```r
-#bottom of metalimnion
-md[2]
-```
-
-```
-[1] 11.0914
-```
-
-schmidt.stability
-========================================================
-Requires bathymetry
-
-
-```r
-bthA <- c(10000,9000,8640,2000,0) #meters^2
-bthD <-	c(0,5,10,15,20) #meters
-
-schmidt.stability(wtr, depths, bthA, bthD)
-```
-
-```
-[1] 402.0844
-```
-
-You get the point.
 
 Timeseries functions
 ========================================================
 All start with "ts.*"
 
+* ts.buoyancy.freq
+* ts.lake.number
+* ts.meta.depths
+* ts.schmidt.stability
+* ts.thermo.depth
+* ts.wedderburn.number
+
+```r
+?thermo.depth
+```
+
+Data Loading
+========================================================
 Use load.ts to load data into proper format
+
+```r
+?load.bathy
+?load.ts
+```
+
 
 ```r
 wtr.path <- system.file('extdata', 'Sparkling.wtr', package="rLakeAnalyzer")
@@ -185,8 +214,11 @@ File Format
 File format is important
 
 ```r
-#file.show(wtr.path)
+file.show(wtr.path)
+```
 
+
+```r
 fpath <- system.file('extdata', 'Sparkling.bth', package="rLakeAnalyzer")  
 sparkling.bathy = load.bathy(fpath)
 head(sparkling.bathy)
@@ -204,7 +236,7 @@ head(sparkling.bathy)
 
 Example files
 ========================================================
-File format is important
+File format is important ([See Vignette](http://cran.r-project.org/web/packages/rLakeAnalyzer/vignettes/data.handling.pdf))
 
 ```r
 fpath
@@ -221,7 +253,6 @@ wtr.path
 ```
 [1] "C:/Users/lwinslow/Documents/R/win-library/3.1/rLakeAnalyzer/extdata/Sparkling.wtr"
 ```
-
 
 
 Timeseries functions
@@ -261,7 +292,7 @@ wtr=load.ts(wtr.path)
 wtr.plot.temp(wtr)
 ```
 
-<img src="g16_gsa_workshop-figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+<img src="g16_gsa_workshop-figure/unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" />
 
 rLakeAnalyzer
 ========================================================
@@ -270,12 +301,63 @@ For further info see:
 * [CRAN Packge page](http://cran.r-project.org/web/packages/rLakeAnalyzer/index.html)
 * [Github Page](http://github.com/GLEON/rLakeAnalyzer)
 
+LakeMetabolizer Functions
+========================================================
+Two main groups
+ * k.*
+ * metab.*
+ * supporting functions
 
 
-LakeMetabolizer
+k.* functions
+========================================================
+Gas Exchange coefficients (timeseries)
+
+* k.cole
+* k.crusius
+* k.macIntyre
+* k.read
+
+
+```r
+?k.cole
+```
+
+metab.* functions
+========================================================
+Metabolism functions (Single day)
+
+* metab.mle
+* metab.ols
+* metab.bookkeep
+* metab.kalman
+* metab.bayesian
+
+Contain detailed documentation
+
+"metab"" functions
 ========================================================
 
+```r
+metab
+```
 
+Calculates metabolism daily across a timeseries
+
+
+Code Example
+========================================================
+<a href="LakeMetabolizer_workshop.R" download>Click to download</a>
+
+
+Tasks
+========================================================
+1. Discuss LakeMetabolizer Data Model
+2. Go over example code
+3. (Challenge 1) Run example code
+4. (Challenge 2) Post metabolism figure you made
+5. (Challenge 3) Change the k.gas model
+6. (Challenge 4) Use Metabolizer on your data
 
 
 
