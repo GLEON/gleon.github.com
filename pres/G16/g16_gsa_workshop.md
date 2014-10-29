@@ -335,7 +335,7 @@ Metabolism functions (Single day)
 
 Contain detailed documentation
 
-"metab"" functions
+"metab" functions
 ========================================================
 
 ```r
