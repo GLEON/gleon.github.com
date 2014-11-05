@@ -2,14 +2,14 @@ Package: GLMr
 Version: 2.0.0.4
 Suggests: glmtools
 License: file LICENSE
-MD5sum: 7495ea0d888f897e1ff8d25db47935d6
+MD5sum: 37aaeabdd6911ddd0184712e4318f3f4
 NeedsCompilation: no
 
 Package: glmtools
-Version: 0.3.0.4
+Version: 0.3.0.9
 Depends: R (>= 3.0), GLMr, rLakeAnalyzer
 Imports: ncdf, tools
 License: file LICENSE
-MD5sum: 00da03f989725caecc6e2e079fb6945a
+MD5sum: 30594b720fec6b3e38af18cd32df6ada
 NeedsCompilation: no
 
