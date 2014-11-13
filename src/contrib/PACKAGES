@@ -8,8 +8,8 @@ NeedsCompilation: no
 Package: glmtools
 Version: 0.3.2.0
 Depends: R (>= 3.0), GLMr, rLakeAnalyzer
-Imports: ncdf, tools
+Imports: ncdf, tools, akima
 License: file LICENSE
-MD5sum: 74ba74e8fe8d075f937f7583f5fd714c
+MD5sum: 5bcb5740423e99f5bc5c04f535ef5507
 NeedsCompilation: no
 
