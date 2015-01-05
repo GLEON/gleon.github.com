@@ -13,3 +13,11 @@ License: file LICENSE
 MD5sum: 3e9a218f86dddb078b8152441784684e
 NeedsCompilation: no
 
+Package: laketemps
+Version: 0.3.1
+Depends: R (>= 3.0),
+Imports: dplyr, reshape2
+License: CC0
+MD5sum: 9591f76dd64ea9e40ddee01ab8eae03b
+NeedsCompilation: no
+
