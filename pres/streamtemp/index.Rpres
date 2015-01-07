@@ -1,6 +1,6 @@
 index
 ========================================================
-author: Luke Winslow
+author: Luke, Kevin, Emily, Jordan
 date: 2014-10-29
 
 Stream temperature trends
