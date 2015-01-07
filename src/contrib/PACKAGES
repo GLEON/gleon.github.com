@@ -6,11 +6,11 @@ MD5sum: 37aaeabdd6911ddd0184712e4318f3f4
 NeedsCompilation: no
 
 Package: glmtools
-Version: 0.3.2.0
+Version: 0.4.1
 Depends: R (>= 3.0), GLMr, rLakeAnalyzer
 Imports: ncdf, tools, akima
 License: file LICENSE
-MD5sum: 5bcb5740423e99f5bc5c04f535ef5507
+MD5sum: 2a2b4ac5f882e12c3fa9e207ead4e595
 NeedsCompilation: no
 
 Package: laketemps
