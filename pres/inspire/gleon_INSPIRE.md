@@ -37,6 +37,10 @@ type:section
 
 The GLM model has been developed as an initiative of the Global Lake Ecological Observatory Network (GLEON) and in collaboration with the Aquatic Ecosystem Modelling Network (AEMON) that started in 2010. The model was first introduced in Leipzig at the 2nd Lake Ecosystem Modelling Symposium in 2012, and has since developed rapidly with application to numerous lakes within the GLEON network and beyond.
 
+Source code available at
+http://github.com/GLEON/GLM-source
+
+
 GLM overview
 ====================================
 type:sub-section
@@ -90,6 +94,7 @@ type:section
 
 GLMr holds the current version of the "General Lake Model",  
 and can run the model on all platforms (windows, mac, linux)
+directly from R
 
 GLMr
 ========================================================
@@ -123,7 +128,7 @@ type:prompt
 left: 50%
 id: sectionRun
 
-<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
+
 
 
 ```r
@@ -131,21 +136,24 @@ run_glm(sim_folder)
 ```
 
 ```r
-Reading config from glm.nml
+       ------------------------------------------------
+       |  General Lake Model (GLM)   Version 2.1.8    |
+       ------------------------------------------------
+nDays 0 timestep 3600.000000
+Maximum lake depth is 9.753600
+Wall clock start time :  Mon Mar 07 16:28:55 2016
+Simulation begins...
+Wall clock finish time : Mon Mar 07 16:28:55 2016
+Wall clock runtime 0 seconds : 00:00:00 [hh:mm:ss]
+
+------------------------------------------------
+              Run Complete
+Reading config from glm2.nml
 No WQ config
 No diffuser data, setting default values
----------------------
-| GLM Version 2.0.0.4 |
----------------------
-nDays 32767 timestep 86400.000000
-Simulation begins...
-Running day  2455806, 100.00% of days complete
-
----------------------
-     Run Complete
+simulation complete. 
 ```
-***
-<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
 
  - run the GLM model on your computer
  
@@ -226,7 +234,7 @@ tmp_run_dir
 ```
 
 ```
-[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpgdrrxE/glm_egs"
+[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpMbIawp/glm_egs"
 ```
 
 ```r
@@ -243,7 +251,7 @@ run_example_sim(tmp_run_dir, verbose=FALSE)
 ```
 
 ```
-[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpgdrrxE/glm_egs"
+[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpMbIawp/glm_egs"
 ```
 You should have a directory that looks like this
 
