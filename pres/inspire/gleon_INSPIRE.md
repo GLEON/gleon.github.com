@@ -226,7 +226,7 @@ tmp_run_dir
 ```
 
 ```
-[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\Rtmpmk0RgJ/glm_egs"
+[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpIpsPss/glm_egs"
 ```
 
 ```r
@@ -243,7 +243,7 @@ run_example_sim(tmp_run_dir, verbose=FALSE)
 ```
 
 ```
-[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\Rtmpmk0RgJ/glm_egs"
+[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpIpsPss/glm_egs"
 ```
 You should have a directory that looks like this
 
