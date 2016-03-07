@@ -5,7 +5,7 @@ font-family: 'Helvetica'
 width: 1440
 height: 900
 **follow along or view later:**
- - github.gleon.io/inspire.html
+ - gleon.github.io/inspire.html
 
 
 Goals for Part II of today's workshop
@@ -226,7 +226,7 @@ tmp_run_dir
 ```
 
 ```
-[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpIpsPss/glm_egs"
+[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpgdrrxE/glm_egs"
 ```
 
 ```r
@@ -243,7 +243,7 @@ run_example_sim(tmp_run_dir, verbose=FALSE)
 ```
 
 ```
-[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpIpsPss/glm_egs"
+[1] "C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpgdrrxE/glm_egs"
 ```
 You should have a directory that looks like this
 
