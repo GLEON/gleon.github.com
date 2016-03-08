@@ -790,7 +790,7 @@ hljs.initHighlightingOnLoad();
 <p><strong>follow along or view later:</strong></p>
 
 <ul>
-<li>github.gleon.io/inspire.html</li>
+<li>gleon.github.io/inspire.html</li>
 </ul>
 
 </div>
@@ -835,6 +835,9 @@ hljs.initHighlightingOnLoad();
 <div class="indent large">Location: <a target="_blank" title="GLM website" href="http://aed.see.uwa.edu.au/research/models/GLM/">http://aed.see.uwa.edu.au/research/models/GLM/</a></div>
 
 <p>The GLM model has been developed as an initiative of the Global Lake Ecological Observatory Network (GLEON) and in collaboration with the Aquatic Ecosystem Modelling Network (AEMON) that started in 2010. The model was first introduced in Leipzig at the 2nd Lake Ecosystem Modelling Symposium in 2012, and has since developed rapidly with application to numerous lakes within the GLEON network and beyond.</p>
+
+<p>Source code available at
+<a href="http://github.com/GLEON/GLM-source">http://github.com/GLEON/GLM-source</a></p>
 
 </div>
 
@@ -923,7 +926,8 @@ hljs.initHighlightingOnLoad();
 <div class="indent large">Location: <a target="_blank" title="glmtools on github" href="https://github.com/GLEON/GLMr">https://github.com/GLEON/GLMr</a></div>
 
 <p>GLMr holds the current version of the &ldquo;General Lake Model&rdquo;,<br/>
-and can run the model on all platforms (windows, mac, linux)</p>
+and can run the model on all platforms (windows, mac, linux)
+directly from R</p>
 
 </div>
 
@@ -959,33 +963,27 @@ nml_template_path()
 </section>
 <section id="sectionRun" data-state="prompt" data-transition="linear" data-transition-speed="default">
 <h3>GLMr</h3>
-<div class="column column1 slideContent" style="width: 48%;" >
-<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
-
+<div class="slideContent" >
 <pre><code class="r">run_glm(sim_folder)
 </code></pre>
 
-<pre><code class="r">Reading config from glm.nml
+<pre><code class="r">       ------------------------------------------------
+       |  General Lake Model (GLM)   Version 2.1.8    |
+       ------------------------------------------------
+nDays 0 timestep 3600.000000
+Maximum lake depth is 9.753600
+Wall clock start time :  Mon Mar 07 16:28:55 2016
+Simulation begins...
+Wall clock finish time : Mon Mar 07 16:28:55 2016
+Wall clock runtime 0 seconds : 00:00:00 [hh:mm:ss]
+
+------------------------------------------------
+              Run Complete
+Reading config from glm2.nml
 No WQ config
 No diffuser data, setting default values
----------------------
-| GLM Version 2.0.0.4 |
----------------------
-nDays 32767 timestep 86400.000000
-Simulation begins...
-Running day  2455806, 100.00% of days complete
-
----------------------
-     Run Complete
+simulation complete. 
 </code></pre>
-
-
-</div>
-
-<div class="column column2 slideContent" style="width: 48%;" >
-
-
-<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
 
 <ul>
 <li>run the GLM model on your computer</li>
@@ -1085,7 +1083,7 @@ any empty directory you want</p>
 tmp_run_dir
 </code></pre>
 
-<pre><code>[1] &quot;C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpIpsPss/glm_egs&quot;
+<pre><code>[1] &quot;C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpMbIawp/glm_egs&quot;
 </code></pre>
 
 <pre><code class="r">dir.create(tmp_run_dir)
@@ -1106,7 +1104,7 @@ tmp_run_dir
 <pre><code class="r">run_example_sim(tmp_run_dir, verbose=FALSE)
 </code></pre>
 
-<pre><code>[1] &quot;C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpIpsPss/glm_egs&quot;
+<pre><code>[1] &quot;C:\\Users\\lwinslow\\AppData\\Local\\Temp\\1\\RtmpMbIawp/glm_egs&quot;
 </code></pre>
 
 <p>You should have a directory that looks like this</p>
